@@ -17,7 +17,7 @@ def load_data_from_image_files(base_data_path):
         if os.path.isdir(data_folder_path):
             for filename in os.listdir(data_folder_path):
                 if filename.endswith(".jpg"):
-                    X.append(cv2.imread(os.path.join(data_folder_path, filename)))
+                    X.append(cv2.imread(os.path.join(data_folder_path, filename))[...,::-1]) # reverse channels BGR -> RGB
                     if data_folder == "null":
                         y.append([0])
                     else:
